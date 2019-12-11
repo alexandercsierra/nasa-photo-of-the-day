@@ -3,6 +3,7 @@ import React from 'react';
 
 const Select = (props) => {
     const {date, setDate, setIsClickedState} = props;
+
     return(
         <div>
             <form>
