@@ -1,11 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FormDiv = styled.div`
+    margin: 2%;
+
+`;
+
 
 
 const Select = (props) => {
     const {date, setDate, setIsClickedState} = props;
 
     return(
-        <div>
+        <FormDiv>
             <form>
                 <input type="date" onChange = {e => {
                     setDate(`&date=${e.target.value}`)
@@ -17,7 +24,7 @@ const Select = (props) => {
                     setIsClickedState(false);
                 }}>Close</button>
             </form>
-        </div>
+        </FormDiv>
     )
 }
 

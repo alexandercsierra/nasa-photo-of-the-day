@@ -1,73 +1,92 @@
 import React from 'react'
-
-// const Img = (props) => {
-//     const {imgState} = props;
-//     return (
-//         <div>
-//             <img src={imgState}></img>
-//         </div>
-//     )
-// }
-
-
-
+import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components'
+import Switch from '@material-ui/core/Switch';
+import Paper from '@material-ui/core/Paper';
+import Collapse from '@material-ui/core/Collapse';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 900,
-  },
-});
+const Image = styled.img`
+    width: 95%;
+    box-shadow: 0px 0px 8px 1px #111111;
+`;
 
-const Container = styled.div`
+const ImgDiv = styled.div`
+    // border: 1px solid yellow;
+    
+    width: 65%;
     display: flex;
+    align-items: center;
     justify-content: center;
 `;
 
-const Img = (props) => {
-    const {descState, titleState, imgState} = props;
-  const classes = useStyles();
-  console.log(titleState);
+const useStyles = makeStyles(theme => ({
+    root: {
+      height: 180,
+    },
+    container: {
+      display: 'flex',
+    },
+    paper: {
+      margin: theme.spacing(1),
+    },
+    svg: {
+      width: 100,
+      height: 100,
+    },
+    polygon: {
+      fill: theme.palette.common.white,
+      stroke: theme.palette.divider,
+      strokeWidth: 1,
+    },
+  }));
+  
+//   const Img = (props) => {
+    // const classes = useStyles();
+    // const [checked, setChecked] = React.useState(false);
+  
+    // const handleChange = () => {
+    //   setChecked(prev => !prev);
 
-  return (
-    <Container>
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="NASA Photo of the day"
-        //   height="140"
-          image="https://webhostingmedia.net/wp-content/uploads/2018/01/http-error-404-not-found.png"
-          title={titleState}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {titleState}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {descState}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-    </Container>
-  );
-}
+    // return(<ImgDiv>
+    //     <FormControlLabel
+    //     control={<Switch  checked={checked} onChange={handleChange}/>}
+    //     label="Show"
+    //     />
+    //     <div className={classes.container}>
+    //     <Fade in={checked}>
+    //         <Paper elevation={4} className={classes.paper}>
+    //         <svg className={classes.svg}>
+    //             <polygon points="0,100 50,00, 100,100" className={classes.polygon} />
+    //         </svg>
+    //         </Paper>
+    //     </Fade>
+    //     </div>
+    //     </ImgDiv>);
+
+
+
+
+
+
+
+// }
+
+const Img = (props) => {
+    const {imgState} = props;
+    return (
+        <ImgDiv>
+            <Image src={imgState}></Image>
+        </ImgDiv>
+
+
+        
+    );
+
+
+
+
+    };
+
 
 export default Img;
