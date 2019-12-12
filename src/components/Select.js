@@ -87,7 +87,7 @@ const formatDate = (selectedDate) => {
           format="MM/dd/yyyy"
           margin="normal"
           id="date-picker-inline"
-          label="Date picker inline"
+          label="Choose a Date"
           value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
