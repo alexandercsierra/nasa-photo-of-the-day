@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from "./Select"
 import styled from 'styled-components'
+import { setDate } from 'date-fns/fp';
 
 const NavBar = styled.nav`
     // background: rgba(0,100,200,.5);
@@ -28,26 +29,46 @@ const Links = styled.a`
 
 `;
 
+const Icon = styled.i`
+    color: white;
+    font-size: 2rem;
+`;
+
 
 const Nav = (props) => {
-    const {setIsClickedState, isClickedState} = props;
+    const {setIsClickedState, isClickedState, setClassState, setDate} = props;
+    
 
     return (
         <div>
             
             <NavBar>
-                <Title>NASA Photo of the Day</Title>
-                <Links href="#">Yesterday</Links>
-                <Links href="#">Today</Links>
+                
+                <Title><Icon className="fas fa-user-astronaut"></Icon>    NASA Photo of the Day</Title>
                 <Links href="#" onClick = {e => {
+                    e.preventDefault();
+                    let selectedDate = new Date();
+                    const formatDate = () => {
+                        setDate("&date=" + selectedDate.getFullYear() + "-" + (selectedDate.getMonth()+1) + "-" + selectedDate.getDate());
+                    
+                      };
+                      formatDate();
+                    
+                }}>Today's Photo</Links>
+                {/* <Select /> */}
+                {/* <Links href="#" onClick = {e => {
                     e.preventDefault();
                     if (isClickedState){
                         setIsClickedState(false);
+                        setClassState("hidden");
+                        console.log("hide");
                     } else {
                         setIsClickedState(true);
+                        setClassState("flex");
+                        console.log("show");
                     }
                     
-                }}>Custom Date</Links>
+                }}>Custom Date</Links> */}
             </NavBar>
         </div>
     )

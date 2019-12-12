@@ -6,7 +6,7 @@ const Container = styled.div`
     width: 30%;
     margin: 4% auto;
     padding: 1%;
-    background: rgba(0,100,200,.5);
+    background: #343a40;
 `
 
 const H1 = styled.h1`

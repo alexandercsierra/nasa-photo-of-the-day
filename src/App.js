@@ -17,13 +17,14 @@ function App() {
   const [descState, setDescState] = useState("");
   const [titleState, setTitleState] = useState("");
   const [isClickedState, setIsClickedState] = useState(false);
-  const [date, setDate] = useState("Today")
+  const [date, setDate] = useState("")
   const [isVideo, setIsVideo] = useState(false);
+  const [classState, setClassState] = useState("hide");
 
   //BEGIN ACTUAL API CALL THAT DOESN"T WORK BECAUSE I AM LOCKED OUT
   useEffect(() => {
     const fetchImg = () => {
-      axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY${date}`)
+      axios.get(`https://api.nasa.gov/planetary/apod?api_key=ePYus014agcNzJBfDKjtxxArgO4jbQdPuH7jHugr${date}`)
         .then(response => {
           let url = response.data.url;
           let desc = response.data.explanation;
@@ -58,32 +59,32 @@ function App() {
   //   "media_type": "image",
   //   "service_version": "v1",
   //   "title": "Starlink Satellite Trails over Brazil",
-  //   "url": "https://webhostingmedia.net/wp-content/uploads/2018/01/http-error-404-not-found.png"
+  //   "url": "https://apod.nasa.gov/apod/image/1912/StarlinkTrails_Filter_2048.jpg"
   //   }
 
-    //   useEffect(() => {
-    // const fetchImg = (obj) => {
+  //     useEffect(() => {
+  //   const fetchImg = (obj) => {
       
-    //       let url = obj.url;
-    //       let desc = obj.explanation;
-    //       let title = obj.title;
-    //       if (url.includes("youtube")){
-    //         setIsVideo(true);
-    //         let newUrl = "https://webhostingmedia.net/wp-content/uploads/2018/01/http-error-404-not-found.png";
-    //       desc = "The photo of the day was in fact a video that can be found below";
-    //         setImgState("");
-    //         setVideoLink(url);
-    //       } else {
-    //         setIsVideo(false);
-    //         setImgState(url);
-    //       }
+  //         let url = obj.url;
+  //         let desc = obj.explanation;
+  //         let title = obj.title;
+  //         if (url.includes("youtube")){
+  //           setIsVideo(true);
+  //           let newUrl = "https://webhostingmedia.net/wp-content/uploads/2018/01/http-error-404-not-found.png";
+  //         desc = "The photo of the day was in fact a video that can be found below";
+  //           setImgState("");
+  //           setVideoLink(url);
+  //         } else {
+  //           setIsVideo(false);
+  //           setImgState(url);
+  //         }
           
-    //       setDescState(desc);
-    //       setTitleState(title);
-    //       console.log(imgState);
-    //     }
-    //     fetchImg(nasaObj);
-    // })
+  //         setDescState(desc);
+  //         setTitleState(title);
+  //         // console.log(imgState);
+  //       }
+  //       fetchImg(nasaObj);
+  //   })
 
 
 
@@ -93,8 +94,9 @@ function App() {
 
   return (
     <div className="App">
-      <Nav setIsClickedState = {setIsClickedState} isClickedState={isClickedState}/>
-      {isClickedState === true && <Select date = {date} setDate = {setDate} setIsClickedState = {setIsClickedState}/>}
+      <Nav setIsClickedState = {setIsClickedState} isClickedState={isClickedState} setClassState={setClassState} date = {date} setDate = {setDate}/>
+      {/* {isClickedState === true && <Select date = {date} setDate = {setDate} setIsClickedState = {setIsClickedState}/>} */}
+      <Select className = {classState} date = {date} setDate = {setDate} setIsClickedState = {setIsClickedState} classState = {classState}/>
       <div className = "contentContainer">
         {/* <Header date = {date}/> */}
         {isVideo === false && <Img imgState = {imgState} descState = {descState} titleState = {titleState}/>}

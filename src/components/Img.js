@@ -5,6 +5,8 @@ import Switch from '@material-ui/core/Switch';
 import Paper from '@material-ui/core/Paper';
 import Collapse from '@material-ui/core/Collapse';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Fade from '@material-ui/core/Fade';
+
 
 const Image = styled.img`
     width: 95%;
@@ -18,59 +20,10 @@ const ImgDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 4%;
 `;
 
-const useStyles = makeStyles(theme => ({
-    root: {
-      height: 180,
-    },
-    container: {
-      display: 'flex',
-    },
-    paper: {
-      margin: theme.spacing(1),
-    },
-    svg: {
-      width: 100,
-      height: 100,
-    },
-    polygon: {
-      fill: theme.palette.common.white,
-      stroke: theme.palette.divider,
-      strokeWidth: 1,
-    },
-  }));
-  
-//   const Img = (props) => {
-    // const classes = useStyles();
-    // const [checked, setChecked] = React.useState(false);
-  
-    // const handleChange = () => {
-    //   setChecked(prev => !prev);
 
-    // return(<ImgDiv>
-    //     <FormControlLabel
-    //     control={<Switch  checked={checked} onChange={handleChange}/>}
-    //     label="Show"
-    //     />
-    //     <div className={classes.container}>
-    //     <Fade in={checked}>
-    //         <Paper elevation={4} className={classes.paper}>
-    //         <svg className={classes.svg}>
-    //             <polygon points="0,100 50,00, 100,100" className={classes.polygon} />
-    //         </svg>
-    //         </Paper>
-    //     </Fade>
-    //     </div>
-    //     </ImgDiv>);
-
-
-
-
-
-
-
-// }
 
 const Img = (props) => {
     const {imgState} = props;
@@ -90,3 +43,6 @@ const Img = (props) => {
 
 
 export default Img;
+
+
+
