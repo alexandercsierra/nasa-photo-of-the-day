@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  /* background: #343a40; */
+  font-family: "Roboto"
 }
 
 .App-logo {
@@ -30,4 +32,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.contentContainer {
+  display: flex;
+  /* border: 1px solid */
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
 }
